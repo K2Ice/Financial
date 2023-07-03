@@ -5,6 +5,7 @@ import HeroSection from "./home/HeroSection"
 import ReportSection from "./home/ReportSection"
 import ProcessSection from "./home/ProcessSection"
 import BenefitsSection from "./home/BenefitsSection"
+import InfoSection from "./home/InfoSection"
 
 const HomePage: NextPage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage: NextPage = () => {
       <ReportSection />
       <ProcessSection />
       <BenefitsSection />
+      <InfoSection />
     </>
   )
 }

@@ -6,7 +6,6 @@ export const StyledSection = styled.section`
   margin: 120px auto;
 
   @media ${breakpoints.xl} {
-    padding: 70px 0;
     margin: 0 16px;
   }
 
