@@ -30,6 +30,7 @@ export const StyledBoxContent = styled.div`
 `
 
 export const StyledHeading = styled.h1`
+  margin: 0 30px;
   color: ${({ theme }) => theme.secondary};
   font-family: "Lato", sans-serif;
   font-size: 54px;
@@ -48,7 +49,8 @@ export const StyledHeading = styled.h1`
 `
 
 export const StyledBoxText = styled.div`
-  width: 900px;
+  max-width: 900px;
+  margin: 0 30px;
 
   @media ${breakpoints.xs} {
     width: 70%;
