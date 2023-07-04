@@ -16,7 +16,7 @@ const Footer: FC = () => {
         <StyledCol>
           <StyledTextBlue>Financia</StyledTextBlue>
           <StyledTextBlue>VAT No. 1234567890</StyledTextBlue>
-          <StyledTextBlue>Sunset Street</StyledTextBlue>
+          <StyledTextBlue>Sunset Street 42</StyledTextBlue>
           <StyledTextBlue>44320 New York</StyledTextBlue>
         </StyledCol>
         <StyledCol>
