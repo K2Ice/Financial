@@ -154,7 +154,7 @@ export const StyledNumberLi = styled.span`
 `
 
 export const StyledBoxImgUp = styled.div`
-  height: 520px;
+  height: 300px;
   border-radius: 10px;
   overflow: hidden;
 

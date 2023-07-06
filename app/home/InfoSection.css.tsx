@@ -9,6 +9,10 @@ export const StyledSection = styled.section`
     padding: 50px 0;
     margin: 0 20px;
   }
+  @media ${breakpoints.xs} {
+    padding: 0;
+    margin: 0 20px;
+  }
 `
 
 export const StyledRowDown = styled.div`

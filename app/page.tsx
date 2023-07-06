@@ -8,6 +8,7 @@ import BenefitsSection from "./home/BenefitsSection"
 import InfoSection from "./home/InfoSection"
 import OrderSection from "./home/OrderSection"
 import ServicesSection from "./home/ServicesSection"
+import ContactSection from "./home/ContactSection"
 
 const HomePage: NextPage = () => {
   return (
@@ -19,6 +20,7 @@ const HomePage: NextPage = () => {
       <InfoSection />
       <OrderSection />
       <ServicesSection />
+      <ContactSection />
     </>
   )
 }

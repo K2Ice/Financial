@@ -43,7 +43,6 @@ export const StyledHeading = styled.h1`
   }
 
   @media ${breakpoints.xxs} {
-    font-size: 32px;
     line-height: 40px;
   }
 `

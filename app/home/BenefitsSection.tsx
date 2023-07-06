@@ -61,8 +61,8 @@ const BenefitsSection: FC = () => {
             <Image
               src={"/img/raport-details.jpg"}
               alt={"Raport details"}
-              width={839}
-              height={520}
+              width={500}
+              height={300}
             />
           </StyledBoxImgUp>
           <StyledBoxTextPhotoUp>

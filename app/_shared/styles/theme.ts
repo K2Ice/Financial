@@ -8,6 +8,7 @@ export const theme: DefaultTheme = {
   btnBg:
     "linear-gradient(156deg, rgba(98,162,233,1) 0%, rgba(39,104,193,1) 30%, rgba(0,17,166,1) 58%);",
   error: "#ED4337",
+  success: "#198754",
 }
 
 export const breakpoints = {
