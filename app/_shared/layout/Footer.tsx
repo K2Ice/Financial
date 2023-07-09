@@ -26,7 +26,7 @@ const Footer: FC = () => {
           <StyledLink href="tel:+999000999">tel. 999000999</StyledLink>
         </StyledCol>
         <StyledCol>
-          <StyledLink href="/termsofservice">Terms of service</StyledLink>
+          <StyledLink href="/terms-of-service">Terms of service</StyledLink>
           <StyledLink href="/privacypolicy">Privacy policy</StyledLink>
           <StyledLink href="/complaint">Make a Complaint</StyledLink>
         </StyledCol>
