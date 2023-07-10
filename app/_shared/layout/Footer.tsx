@@ -27,7 +27,7 @@ const Footer: FC = () => {
         </StyledCol>
         <StyledCol>
           <StyledLink href="/terms-of-service">Terms of service</StyledLink>
-          <StyledLink href="/privacypolicy">Privacy policy</StyledLink>
+          <StyledLink href="/privacy-policy">Privacy policy</StyledLink>
           <StyledLink href="/complaint">Make a Complaint</StyledLink>
         </StyledCol>
       </StyledContainer>
