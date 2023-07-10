@@ -61,15 +61,17 @@ const ComplaintForm: FC = () => {
                 <InputText
                   id="email"
                   name="email"
-                  error={errors.email && touched.email && errors.email}
+                  placeholder="john.smith@gmail.com"
                   label="Email:"
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  error={errors.email && touched.email && errors.email}
                 />
                 <InputText
                   id="order_id"
                   name="order_id"
+                  placeholder="2312_i2ea"
                   label="Order Id:"
                   value={values.order_id}
                   onChange={handleChange}
@@ -80,6 +82,7 @@ const ComplaintForm: FC = () => {
               <Textarea
                 id="description"
                 name="description"
+                placeholder="I complain about.."
                 label="Description:"
                 value={values.description}
                 onChange={handleChange}
