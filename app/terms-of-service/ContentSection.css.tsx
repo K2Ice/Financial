@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { breakpoints } from "../_shared/styles/theme"
 
 export const StyledSection = styled.section`
   margin: 120px 30px;
@@ -10,6 +11,10 @@ export const StyledTitle = styled.h2`
   margin-bottom: 20px;
   color: ${({ theme }) => theme.blue};
   font-family: "Merriweather";
+
+  @media ${breakpoints.sm} {
+    font-size: 30px;
+  }
 `
 
 export const StyledSubtitle = styled.h3`

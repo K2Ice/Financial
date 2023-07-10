@@ -1,6 +1,4 @@
 "use client"
-
-import { useRouter } from "next/navigation"
 import { FC, useState } from "react"
 
 import { Formik } from "formik"
@@ -48,8 +46,6 @@ const validationSchema = () =>
   })
 
 const OrderForm: FC = () => {
-  const router = useRouter()
-
   const [isOpenPopupConfirmEmail, setIsOpenPopupConfirmEmail] =
     useState<boolean>(false)
   const [isOpenPopupInvoice, setIsOpenPopupInvoice] = useState<boolean>(false)
@@ -57,17 +53,15 @@ const OrderForm: FC = () => {
   const [isInvoiceAdded, setIsInvoiceAdded] = useState<boolean>(false)
   const [price, setPrice] = useState<number>(122)
 
-  const confirmEmail = async (values: typeof initialValues) => {
+  const confirmEmail = (values: typeof initialValues) => {
     const dataToSend = {
       ...values,
       price: price,
       invoice: isInvoiceAdded ? invoice : null,
     }
-
-    console.log("dataToSend: ", dataToSend)
   }
 
-  const submitForm = async () => {
+  const submitForm = () => {
     setIsOpenPopupConfirmEmail(true)
   }
 

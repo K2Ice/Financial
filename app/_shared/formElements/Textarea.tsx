@@ -4,21 +4,23 @@ import {
   StyledBox,
   StyledBoxLabel,
   StyledLabel,
-  StyledInput,
   StyledTextError,
-} from "./InputText.css"
-interface InputTextProps {
+  StyledTextarea,
+} from "./Textarea.css"
+
+interface TextareaProps {
   id: string
   name: string
   error: string | boolean | undefined
   label: string
   placeholder?: string
   value: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
-  onBlur: (e: FocusEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
+  onBlur: (e: FocusEvent<HTMLTextAreaElement>) => void
+  marginBottom?: number
 }
 
-const InputText: FC<InputTextProps> = ({
+const Textarea: FC<TextareaProps> = ({
   id,
   name,
   error,
@@ -27,24 +29,24 @@ const InputText: FC<InputTextProps> = ({
   value,
   onChange,
   onBlur,
+  marginBottom = 0,
 }) => {
   return (
-    <StyledBox>
+    <StyledBox style={{ marginBottom: marginBottom + "px" }}>
       <StyledBoxLabel>
         <StyledLabel htmlFor={id}>{label}</StyledLabel>
         <StyledTextError>{error}</StyledTextError>
       </StyledBoxLabel>
-      <StyledInput
+      <StyledTextarea
         id={id}
-        type="text"
         name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-      />
+      ></StyledTextarea>
     </StyledBox>
   )
 }
 
-export default InputText
+export default Textarea
