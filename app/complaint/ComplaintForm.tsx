@@ -21,7 +21,9 @@ const validationSchema = () =>
   Yup.object().shape({
     email: Yup.string().required("Email is required.").email("Wrong email."),
     order_id: Yup.string().required("Order id is required."),
-    description: Yup.string().required("Description is required."),
+    description: Yup.string()
+      .required("Description is required.")
+      .min(20, "Write min. 20 letters."),
   })
 
 const ComplaintForm: FC = () => {

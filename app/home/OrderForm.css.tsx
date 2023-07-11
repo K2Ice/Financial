@@ -82,3 +82,17 @@ export const StyledSubtitleSmall = styled.h3`
     margin-bottom: 30px;
   }
 `
+export const StyledTextPopupData = styled.p`
+  text-align: center;
+  margin-bottom: 40px;
+`
+export const StyledTextKey = styled.span`
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Lato";
+`
+export const StyledTextValue = styled.span`
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Lato";
+`

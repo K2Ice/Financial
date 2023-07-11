@@ -19,6 +19,9 @@ import {
   StyledTextEmail,
   StyledTextBolder,
   StyledSubtitleSmall,
+  StyledTextPopupData,
+  StyledTextKey,
+  StyledTextValue,
 } from "./OrderForm.css"
 import Popup from "../_shared/popups/Popup"
 import OrderPopupInvoice from "../_shared/popups/OrderPopupInvoice"
@@ -28,7 +31,9 @@ const validationSchema = () =>
     email: Yup.string()
       .required("Email is required.")
       .email("Email has wrong format."),
-    vatNo: Yup.string().required("Vat No. is required."),
+    vatNo: Yup.string()
+      .matches(/^\d{10}$/, "VAT No. must have 10 digits.")
+      .required("VAT No. is required."),
     consent_to_process_personal_data: Yup.boolean()
       .oneOf([true], "Agreement is required.")
       .required("Agreement is required."),
@@ -52,6 +57,7 @@ const OrderForm: FC = () => {
   const [invoice, setInvoice] = useState<any>(null)
   const [isInvoiceAdded, setIsInvoiceAdded] = useState<boolean>(false)
   const [price, setPrice] = useState<number>(122)
+  const [isDataCollected, setIsDataCollected] = useState<boolean>(false)
 
   const confirmEmail = (values: typeof initialValues) => {
     const dataToSend = {
@@ -147,7 +153,7 @@ const OrderForm: FC = () => {
               {isOpenPopupConfirmEmail && (
                 <Popup>
                   <StyledSubtitleSmall>
-                    Czy adres email jest poprawny?
+                    Is your email correct?
                   </StyledSubtitleSmall>
                   <StyledTextEmail>{values.email}</StyledTextEmail>
                   <StyledRowButtons>
@@ -157,14 +163,46 @@ const OrderForm: FC = () => {
                       height={52}
                       grayScale={true}
                     >
-                      Wróć
+                      Decline
                     </Button>
                     <Button
-                      onClick={() => confirmEmail(values)}
+                      onClick={() => {
+                        confirmEmail(values)
+                        setIsDataCollected(true)
+                        setIsOpenPopupConfirmEmail(false)
+                      }}
                       width={180}
                       height={52}
                     >
-                      Potwierdzam
+                      Confirm
+                    </Button>
+                  </StyledRowButtons>
+                </Popup>
+              )}
+              {isDataCollected && (
+                <Popup>
+                  <StyledSubtitleSmall>
+                    Your raport will be send to:
+                  </StyledSubtitleSmall>
+                  <StyledTextEmail>{values.email}</StyledTextEmail>
+                  {isInvoiceAdded && (
+                    <StyledTextPopupData>
+                      {Object.keys(invoice).map((key) => (
+                        <div key={key}>
+                          <StyledTextKey>{key}: </StyledTextKey>
+                          <StyledTextValue>{invoice[key]}</StyledTextValue>
+                        </div>
+                      ))}
+                    </StyledTextPopupData>
+                  )}
+                  <StyledRowButtons>
+                    <Button
+                      onClick={() => setIsDataCollected(false)}
+                      width={180}
+                      height={52}
+                      grayScale={true}
+                    >
+                      Close
                     </Button>
                   </StyledRowButtons>
                 </Popup>

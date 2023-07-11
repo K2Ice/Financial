@@ -1,7 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation"
-import { FC } from "react"
+import { ChangeEvent, FC, useState } from "react"
 
 import { Formik } from "formik"
 import * as Yup from "yup"
@@ -13,6 +12,7 @@ import {
   StyledBox,
   StyledInput,
   StyledTextError,
+  StyledTextSuccess,
 } from "./ContactForm.css"
 
 const isPhoneNumber = (value: string) => {
@@ -35,10 +35,10 @@ const validationSchema = Yup.object().shape({
 })
 
 const ContactForm: FC = () => {
-  const router = useRouter()
-
-  const submitForm = async (values: typeof initialValues) => {
-    console.log(values)
+  const [message, setMessage] = useState("")
+  const submitForm = async (values: typeof initialValues, actions: any) => {
+    setMessage("Thank you! We will contact as soon as possible")
+    actions.resetForm({ values: { contact: "" } })
   }
 
   const initialValues = {
@@ -70,7 +70,10 @@ const ContactForm: FC = () => {
                   placeholder="Email or phone"
                   name="contact"
                   value={values.contact}
-                  onChange={handleChange}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    handleChange(e)
+                    setMessage("")
+                  }}
                   onBlur={handleBlur}
                 />
 
@@ -81,6 +84,7 @@ const ContactForm: FC = () => {
               <StyledTextError>
                 {errors.contact && touched.contact && errors.contact}
               </StyledTextError>
+              <StyledTextSuccess>{message}</StyledTextSuccess>
             </StyledForm>
           </>
         )
