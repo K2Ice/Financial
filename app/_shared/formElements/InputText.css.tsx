@@ -8,6 +8,7 @@ export const StyledBox = styled.div`
 export const StyledBoxLabel = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 5px;
   margin-bottom: 10px;
 `
 
@@ -45,4 +46,5 @@ export const StyledTextError = styled.p`
   font-size: 14px;
   font-weight: 700;
   color: ${({ theme }) => theme.error};
+  text-align: right;
 `

@@ -19,7 +19,9 @@ import Button from "../formElements/Button"
 const validationSchema = () =>
   Yup.object().shape({
     company: Yup.string().required("Company name is required."),
-    vat: Yup.string().required("VAT No. is required."),
+    vat: Yup.string()
+      .matches(/^\d{10}$/, "VAT No. must have 10 digits.")
+      .required("VAT No. is required."),
     postcode: Yup.string().required("Postcode is required."),
     city: Yup.string().required("City is required."),
     address: Yup.string().required("Address is required."),
@@ -74,8 +76,6 @@ const OrderPopupInvoice: FC<OrderPopupInvoiceProps> = ({
           handleSubmit,
           handleBlur,
         } = formik
-
-        console.log(errors.address)
 
         return (
           <form onSubmit={handleSubmit} noValidate>
