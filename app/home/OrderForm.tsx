@@ -220,7 +220,7 @@ const OrderForm: FC = () => {
                       text="Check all"
                       checked={values.checkAll}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        setPrice(e.target.checked ? 165 : 122)
+                        setPrice(e.target.checked ? 155 : 122)
                         checkAllCheckboxes(e)
                       }}
                     />
